@@ -1,61 +1,54 @@
-SPE GROUP WEBSITE - RELEASE V11
-Updated 4 August 2026
+SPE GROUP WEBSITE - RELEASE V14 MASTER
+Updated 5 August 2026
 
-CHANGES FROM V10
-1. Formspree endpoint updated to mjgnzjwn (SPE Group form, delivering to shaun@spegroup.com.au).
-   Previous endpoint mnjkwryq sat in a different Formspree team and is no longer referenced.
-2. Added a named project background block to the Experience section. The site previously described
-   capability in the abstract and did not name a single project or client, while the LinkedIn profile
-   named Chevron, Santos, Equinor and five specific assets. Five entries added: nine platforms for
-   Chevron Australia, Campbell platforms for Santos, Harriet Alpha, Statfjord A topside method
-   statement for the Equinor tender, and West Coast feasibility studies for Chevron USA. A qualifying
-   note states these were delivered in senior project engineering roles before SPE Group was formed.
-3. Added LinkedIn to the contact details block so the site and profile cross-link both ways.
-4. Experience grid adjusted so the left panel spans both rows and the two right-hand blocks stack.
-   Collapses to single column below 960px.
-5. sitemap.xml lastmod updated to 2026-08-04.
+WHAT V14 IS
+V14 merges the redesigned V13 experience (ChatGPT build) with the substance and deployment fixes from
+the live V12. The V13 design was adopted; its regressions were corrected.
 
-VERIFY BEFORE PUBLISHING
-1. Read the five project entries and confirm each is accurate and not commercially restricted.
-   Statfjord A was a Commercial in Confidence tender. If Liberty treated the engagement as
-   confidential, delete that row before publishing.
-2. Confirm +61 450 165 492 is the number to publish.
-3. After the site is live, submit a real enquiry through the form and confirm it arrives at
-   shaun@spegroup.com.au.
+ADOPTED FROM V13
+1. Engineering Basis Control hero: control rows for scope boundary, source evidence, assumptions,
+   constructability and cost basis, with maturity states, decision readiness, stage gates and a
+   non-software disclaimer. Replaces the generic workflow graph.
+2. Founder credentials block: mechanical engineer, MSc, Executive MBA, presented in a restrained
+   technical-and-business background panel with base, coverage, delivery and engagement facts.
+3. Shorter mobile composition, refined section structure, keyboard-accessible stage tabs, meaningful
+   animation with reduced-motion support.
 
-DEPLOYMENT - GITHUB PAGES
-1. Create a public repo named "spegroup" under github.com/shaunbkr.
-2. Upload all ten files in this folder to the repo root, including CNAME.
-3. Settings > Pages > Source: Deploy from a branch > main > / (root) > Save.
-4. Settings > Pages > Custom domain: spegroup.com.au > Save.
-5. In GoDaddy DNS, first delete the parked A record on host @ and any GoDaddy CNAME on host www.
-   Leaving them in place is the most common reason the site fails to load. Then add:
-     A     @     185.199.108.153
-     A     @     185.199.109.153
-     A     @     185.199.110.153
-     A     @     185.199.111.153
-     CNAME www   shaunbkr.github.io
-   Do not touch the MX records or any TXT record starting with v=spf1 or MS=. Those are the
-   Microsoft 365 email records. A records and MX records do not conflict.
-6. Check Domain Settings for Forwarding. If domain forwarding is on, turn it off. It silently
-   overrides DNS records.
-7. Wait for the green DNS check in GitHub Pages settings, then tick Enforce HTTPS.
+CORRECTED IN V14
+1. Degree name corrected everywhere to the formal title: MSc in Petroleum Refinery Systems
+   Engineering (prose, credentials chip, JSON-LD description and hasCredential).
+2. Named project background restored and set open by default. V13 had anonymised all clients and
+   assets, which said less than the public LinkedIn profile. Restored: nine platforms for Chevron
+   Australia, Campbell platforms for Santos, Harriet Alpha pre works, Statfjord A Equinor tender
+   method statement, Chevron USA West Coast studies, with the qualifier that these were delivered in
+   senior project engineering roles prior to SPE Group. If the Statfjord A row is considered
+   commercially sensitive, delete that single div before deployment.
+3. Details toggle label logic aligned with the open-by-default state.
+4. Favicon reference fixed: V13 pointed at assets/img/favicon.svg which does not exist in the
+   package. Now uses icon-192.png.
+5. Full deployment package restored: CNAME, robots.txt, sitemap.xml (lastmod 2026-08-05),
+   site.webmanifest, icons, og-cover.png, _headers.
 
-NOTE ON _headers
-The _headers file is Netlify and Cloudflare Pages format. GitHub Pages does not support custom
-response headers, so on GitHub Pages the file is ignored. The site still serves over HTTPS. If the
-security headers are wanted in force, deploy to Cloudflare Pages instead, which reads _headers
-natively and uses the same DNS approach. The file is harmless either way and has been kept.
+VERIFIED IN THIS BUILD (static analysis)
+- 0 HTML parse errors (html5lib)
+- 0 duplicate element IDs, 0 broken in-page anchors
+- Both JavaScript blocks pass node --check
+- 650/650 CSS braces balanced, 10 media queries, reduced-motion styles present
+- JSON-LD parses; ProfessionalService with founder credentials and LinkedIn sameAs
+- All local asset references exist in the package
+- Formspree endpoint mjgnzjwn (single occurrence)
+- Success panel, send-another control, privacy dialog, theme toggle and mobile menu wiring all
+  resolve to existing elements
+- Canonical, og:url, og:image 1200x630, twitter card tags present
 
-AFTER GOING LIVE
-Add the site to Google Search Console and submit https://spegroup.com.au/sitemap.xml.
-Paste the URL into a message to yourself to check the link preview renders the og-cover image.
-Add the website to the LinkedIn profile under Contact info and Featured.
+NOT TESTABLE IN THIS ENVIRONMENT (do these live, ~5 minutes)
+1. Submit one real enquiry on the live site; confirm delivery to shaun@spegroup.com.au (check Junk).
+2. Open the live site on iPhone Safari and Android Chrome: hero control readable, tabs switch,
+   menu opens, form submits.
+3. Toggle dark mode on a phone.
+4. Paste the URL into WhatsApp and confirm the og-cover preview renders.
 
-ENTITY POSITION
-SPE Group Pty Ltd and Endura Decommissioning are separate legal entities. Endura is presented as a
-delivery partner.
-
-PRE-EXISTING IP
-Record this website design, code, copy and SPE branding as SPE Group pre-existing IP where relevant
-under the applicable engagement terms.
+DEPLOYMENT
+Replace the repository contents with the ten files in this folder (or just replace index.html and
+sitemap.xml if the other eight are already in the repo unchanged). GitHub Pages redeploys in about a
+minute. DNS, HTTPS and email records are already correct and unaffected.
