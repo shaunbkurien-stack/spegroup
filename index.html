@@ -248,6 +248,10 @@ html[data-theme="dark"] .engine-frame:hover{box-shadow:0 42px 120px rgba(0,0,0,.
 .engine-title i{width:8px;height:8px;border-radius:50%;background:var(--success);box-shadow:0 0 0 5px rgba(39,130,90,.12);animation:engine-live 2.2s ease-in-out infinite}
 @keyframes engine-live{0%,100%{transform:scale(.82);opacity:.68}50%{transform:scale(1.15);opacity:1}}
 .engine-ref{font-family:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,monospace;font-size:.61rem;letter-spacing:.06em;color:var(--faint)}
+.engine-topbar-right{display:inline-flex;align-items:center;gap:10px}
+.engine-play{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:color .18s ease,border-color .18s ease}
+.engine-play:hover{color:var(--ink);border-color:var(--brass-400)}
+.engine-play:focus-visible{outline:2px solid var(--brass-400);outline-offset:2px}
 .engine-tabs{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:16px 18px 0}
 .engine-tab{position:relative;overflow:hidden;min-height:42px;border:1px solid var(--line);background:var(--surface-2);color:var(--muted);padding:10px 7px;border-radius:10px;cursor:pointer;font-family:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,monospace;font-size:.66rem;font-weight:700;transition:transform .2s,border-color .2s,background .2s,color .2s}
 .engine-tab::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.18),transparent 80%);transform:translateX(-135%);transition:transform .6s var(--ease)}
@@ -601,7 +605,7 @@ html[data-theme="dark"] .profile-monogram{background:var(--brass-500);color:#171
   :root{--header:72px}.shell{width:min(calc(100% - 30px),var(--max))}.section{padding:82px 0}
   .brand-sub{display:none}.hero{padding:calc(var(--header) + 62px) 0 62px}.hero h1{font-size:clamp(2.65rem,13vw,4.35rem);line-height:.96;letter-spacing:-.06em}.hero-lead{font-size:1rem}.availability{display:none}
   .hero-proof{grid-template-columns:1fr 1fr;gap:18px}.hero-proof .proof-item:last-child{grid-column:1/-1}.ring-a{width:430px;height:430px;right:-280px}.ring-b{display:none}.scroll-cue{display:none}
-  .basis-engine::before{inset:8% 0 -6% 8%}.engine-frame{transform:none!important}.engine-topbar{padding:16px 17px}.engine-ref{display:none}.engine-tabs{grid-template-columns:1fr 1fr;padding:14px 14px 0}.control-surface{margin:14px 14px 0}.control-overview{grid-template-columns:112px minmax(0,1fr) 100px;padding:15px}.engine-readout{grid-template-columns:1fr;padding:17px 17px 12px}.readout-pair{grid-template-columns:1fr 1fr}.engine-disclaimer{margin:0 17px 19px}
+  .basis-engine::before{inset:8% 0 -6% 8%}.engine-frame{transform:none!important}.engine-topbar{padding:16px 17px}.engine-ref{display:none}.engine-topbar-right{gap:0}.engine-tabs{grid-template-columns:1fr 1fr;padding:14px 14px 0}.control-surface{margin:14px 14px 0}.control-overview{grid-template-columns:112px minmax(0,1fr) 100px;padding:15px}.engine-readout{grid-template-columns:1fr;padding:17px 17px 12px}.readout-pair{grid-template-columns:1fr 1fr}.engine-disclaimer{margin:0 17px 19px}
   .proof-grid{grid-template-columns:1fr 1fr}.proof-stat:nth-child(2){border-right:0}.proof-stat:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}
   .cap-grid{grid-template-columns:1fr}.cap-feature,.cap-compact{grid-column:auto;min-height:0}.cap-card{padding:25px}.cap-feature{min-height:390px}.cap-graphic{width:48%;opacity:.1}.cap-icon{bottom:40px;right:18px;width:62px}
   .method-visual{padding:22px}.basis-stack{padding-right:24px}.stack-route{right:-42px}.method-step{grid-template-columns:48px 1fr;gap:20px}.method-number{width:48px;height:48px}.method-list::before,.method-list::after{left:23px}
@@ -722,8 +726,7 @@ html[data-theme="dark"] .profile-monogram{background:var(--brass-500);color:#171
   },
   "areaServed": [
     "Australia",
-    "North Sea",
-    "Middle East"
+    "International"
   ],
   "identifier": [
     "ABN 75 697 068 321",
@@ -740,6 +743,16 @@ html[data-theme="dark"] .profile-monogram{background:var(--brass-500);color:#171
     "Petroleum refining",
     "Business case development",
     "Project commercial strategy"
+  ],
+  "@id": "https://spegroup.com.au/#organization",
+  "logo": "https://spegroup.com.au/icon-512.png",
+  "image": "https://spegroup.com.au/og-cover.png",
+  "serviceType": [
+    "Decommissioning project engineering",
+    "Decommissioning cost estimation",
+    "Removal methodology and constructability",
+    "Tender and owner’s engineer support",
+    "Late life asset studies"
   ]
 }</script>
 </head>
@@ -823,15 +836,15 @@ html[data-theme="dark"] .profile-monogram{background:var(--brass-500);color:#171
 </div>
 <div aria-label="Key experience" class="hero-proof">
 <div class="proof-item"><strong>11+</strong><span>years across offshore, heavy lift and demolition work</span></div>
-<div class="proof-item"><strong>03</strong><span>regions: Australia, Middle East and North Sea</span></div>
+<div class="proof-item"><strong>04</strong><span>project markets: Australia, Middle East, North Sea and the US</span></div>
 <div class="proof-item"><strong>01</strong><span>senior engineer accountable for each deliverable</span></div>
 </div>
 </div>
-<div aria-label="Interactive engineering basis control" class="basis-engine" id="basisEngine">
+<div aria-describedby="engineDisclaimer" aria-label="Interactive engineering basis control" class="basis-engine" id="basisEngine">
 <div class="engine-frame">
 <div class="engine-topbar">
 <div class="engine-title"><i></i><span>Engineering basis control</span></div>
-<span class="engine-ref">SPE / BASIS / 013F</span>
+<span class="engine-topbar-right"><span class="engine-ref">Illustrative method</span><button aria-label="Pause automatic stage progression" aria-pressed="false" class="engine-play" id="enginePlayback" title="Pause" type="button"><svg aria-hidden="true" fill="currentColor" height="12" viewBox="0 0 24 24" width="12"><rect height="14" rx="1.4" width="4.6" x="5.4" y="5"></rect><rect height="14" rx="1.4" width="4.6" x="14" y="5"></rect></svg></button></span>
 </div>
 <div aria-label="Project maturity stage" class="engine-tabs" role="tablist">
 <button aria-controls="enginePanel" aria-selected="true" class="engine-tab" data-stage="0" role="tab">Screen</button>
@@ -883,7 +896,7 @@ html[data-theme="dark"] .profile-monogram{background:var(--brass-500);color:#171
 <div><span>Control gate</span><strong id="engineControl">Unknowns separated from assumptions</strong></div>
 </div>
 </div>
-<p class="engine-disclaimer">Interactive illustration of SPE Group's engineering-control method. It is not a software product and does not represent project-specific data.</p>
+<p class="engine-disclaimer" id="engineDisclaimer">Interactive illustration of SPE Group's engineering-control method. It is not a software product and does not represent project-specific data.</p>
 <div aria-hidden="true" class="engine-cycle"><i></i></div>
 </div>
 </div>
@@ -1089,7 +1102,7 @@ html[data-theme="dark"] .profile-monogram{background:var(--brass-500);color:#171
 <div class="contact-detail"><span>Location</span><p>Sydney, Australia</p><small>Australian and international scopes</small></div>
 </div>
 </div>
-<form action="https://formspree.io/f/mjgnzjwn" class="contact-form reveal delay-1" id="contactForm" method="post" novalidate="">
+<form action="https://formspree.io/f/mjgnzjwn" class="contact-form reveal delay-1" id="contactForm" method="post">
 <div class="form-row">
 <div class="field"><label for="name">Name</label><input aria-describedby="nameError" aria-invalid="false" autocomplete="name" id="name" maxlength="120" name="name" placeholder="Your name" required="" type="text"/><div class="field-message" id="nameError">Enter your name.</div></div>
 <div class="field"><label for="email">Email</label><input aria-describedby="emailError" aria-invalid="false" autocomplete="email" id="email" inputmode="email" maxlength="254" name="email" placeholder="you@company.com" required="" type="email"/><div class="field-message" id="emailError">Enter a valid email address.</div></div>
@@ -1111,7 +1124,7 @@ html[data-theme="dark"] .profile-monogram{background:var(--brass-500);color:#171
 <div aria-hidden="true" class="success-mark"><svg fill="none" height="34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="34"><path d="M20 6 9 17l-5-5"></path></svg></div>
 <h3>Enquiry received</h3>
 <p>Thank you. Your scope enquiry has been sent to SPE Group.</p>
-<div class="success-next"><div><span>Next step</span><p>Shaun will review the scope and reply directly, normally within one business day.</p></div><div><span>Something urgent</span><p><a href="mailto:shaun@spegroup.com.au">shaun@spegroup.com.au</a><br/><a href="tel:+61450165492">+61 450 165 492</a></p></div></div>
+<div class="success-next"><div><span>Next step</span><p>Shaun reviews every enquiry and replies directly.</p></div><div><span>Something urgent</span><p><a href="mailto:shaun@spegroup.com.au">shaun@spegroup.com.au</a><br/><a href="tel:+61450165492">+61 450 165 492</a></p></div></div>
 <button class="btn btn-secondary" id="sendAnother" type="button">Send another enquiry</button>
 </div>
 </div>
@@ -1312,6 +1325,20 @@ html[data-theme="dark"] .profile-monogram{background:var(--brass-500);color:#171
   let engineVisible = true;
   let engineTimer = null;
   let userControlledEngine = false;
+  const playbackButton = qs('#enginePlayback');
+  const playbackIcons = {
+    pause:'<rect x="5.4" y="5" width="4.6" height="14" rx="1.4"></rect><rect x="14" y="5" width="4.6" height="14" rx="1.4"></rect>',
+    play:'<path d="M8 5.4v13.2c0 .9 1 1.5 1.8 1L19 13a1.2 1.2 0 0 0 0-2L9.8 4.4c-.8-.5-1.8.1-1.8 1z"></path>'
+  };
+  function updatePlaybackButton(){
+    if(!playbackButton) return;
+    const paused = userControlledEngine;
+    playbackButton.setAttribute('aria-pressed', String(paused));
+    playbackButton.setAttribute('aria-label', paused ? 'Resume automatic stage progression' : 'Pause automatic stage progression');
+    playbackButton.title = paused ? 'Play' : 'Pause';
+    const icon = qs('svg', playbackButton);
+    if(icon) icon.innerHTML = paused ? playbackIcons.play : playbackIcons.pause;
+  }
 
   function restartEngineCycle(){
     if(!engineCycle || userControlledEngine) return;
@@ -1331,7 +1358,7 @@ html[data-theme="dark"] .profile-monogram{background:var(--brass-500);color:#171
   function setEngineStage(index,userInitiated=false){
     const data=stageData[index]; if(!data) return;
     activeStage=index;
-    if(userInitiated){userControlledEngine=true;engineCycle?.classList.add('manual');}
+    if(userInitiated){userControlledEngine=true;engineCycle?.classList.add('manual');updatePlaybackButton();}
     engineTabs.forEach((tab,i)=>{const selected=i===index;tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;});
     engineFrame?.classList.remove('is-changing'); void engineFrame?.offsetWidth; engineFrame?.classList.add('is-changing');
     window.setTimeout(()=>engineFrame?.classList.remove('is-changing'),460);
@@ -1372,6 +1399,21 @@ html[data-theme="dark"] .profile-monogram{background:var(--brass-500);color:#171
     engine.addEventListener('mouseleave',()=>engineCycle?.classList.remove('paused'));
     engine.addEventListener('focusin',()=>engineCycle?.classList.add('paused'));
     engine.addEventListener('focusout',()=>engineCycle?.classList.remove('paused'));
+    playbackButton?.addEventListener('click',()=>{
+      if(userControlledEngine){
+        userControlledEngine=false;
+        engineCycle?.classList.remove('manual');
+        restartEngineCycle();
+        setEngineStage((activeStage+1)%stageData.length);
+      } else {
+        userControlledEngine=true;
+        engineCycle?.classList.add('manual');
+      }
+      updatePlaybackButton();
+    });
+    updatePlaybackButton();
+  } else if(playbackButton){
+    playbackButton.hidden = true;
   }
 
   /* Reveal and section navigation */
@@ -1488,6 +1530,7 @@ html[data-theme="dark"] .profile-monogram{background:var(--brass-500);color:#171
 
   /* Form */
   const form = qs('#contactForm');
+  if (form) form.noValidate = true;
   const submitButton = qs('#submitButton');
   const formStatus = qs('#formStatus');
   const formSuccess = qs('#formSuccess');
