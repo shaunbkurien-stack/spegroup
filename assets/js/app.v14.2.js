@@ -502,3 +502,14 @@
   const year = qs('#year');
   if (year) year.textContent = new Date().getFullYear();
 })();
+
+/* v15.1: hero capability chips activate the matching capability tab */
+(function(){
+  document.querySelectorAll('.hero-caps a[data-cap]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var i = parseInt(a.dataset.cap, 10);
+      var buttons = document.querySelectorAll('.capability-button');
+      if (buttons[i]) buttons[i].click();
+    });
+  });
+})();
