@@ -1,0 +1,1 @@
+(function(){try{var t=localStorage.getItem('spe-theme');if(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)t='dark';if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
