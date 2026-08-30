@@ -1,30 +1,22 @@
-SPE GROUP WEBSITE V15 FINAL, SIGNATURE 2.0 NAMED PORTFOLIO
+SPE GROUP WEBSITE V18, PROFESSIONAL LIGHT
 
-Merged release: the v14 Signature 2.0 architecture combined with the
-named project portfolio from the previously published live site.
+Release after removal of the drawing plate hero experiment. Light
+professional hero retained with earned refinements only.
 
 CONTAINS
-1. Project Basis Dossier 2.0 hero with traceability rail
-2. Basis shift comparison and capability question navigator
-3. Four stage source, unknowns, method and decision architecture
-4. Named project background, six case notes (A to F) framed as
-   personal career history in senior roles prior to SPE Group
-5. Working principle pull quote in the background section
-6. Founder credentials, Initial Scope Brief generator, FAQ, contact
-7. Light and dark themes, reduced motion and no JavaScript fallbacks
-8. Strict Content Security Policy, versioned static assets
+1. Light hero, capability chip row (5 direct links that activate the
+   matching capability tab), ruled proof stats, stamp overlap fix
+2. Project Basis Dossier, basis shift, capability navigator, method,
+   named project background (case notes A to F), scope brief tool,
+   FAQ, contact, privacy
+3. Versioned assets site.v18.css, app.v18.js, theme-init.v18.js,
+   cache safe, every release bumps these names
+4. Strict CSP including connect-src for the fetch based form submit
+5. Formspree endpoint f/mjgnzjwn, confirmed active by owner
 
-FORM
-Formspree endpoint f/mjgnzjwn, confirmed active and tested by owner.
-
-BEFORE PUBLIC RELEASE
-1. Owner review of case note F (Shell GTL operations, Qatar), the one
-   named entry not previously published on the live site.
-2. Send one live form submission from the deployed domain.
-3. Confirm shaun@spegroup.com.au sends and receives.
-4. Smoke test on physical iPhone Safari, Android Chrome, Firefox.
-5. Confirm the MSc title wording matches the formal academic record.
-
-DEPLOY
-Upload the full contents of this folder to the GitHub Pages repository
-root for spegroup.com.au, replacing existing files. CNAME included.
+BEFORE ANNOUNCING
+1. One live form submission from the deployed domain
+2. Confirm MSc title wording against the formal academic record
+3. Smoke test on a physical phone
+4. Optional next step, owner supplied project photography for the
+   hero, the remaining differentiation lever
